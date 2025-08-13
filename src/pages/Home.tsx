@@ -53,9 +53,9 @@ const Home = () => {
       // Mock return data
       setReturnData({
         address: "123 Main St, City, State 12345",
-        item_name: "Sample Product Name",
+        item_name: "Premium Ultra-Soft Microfiber Bed Sheet Set with Deep Pockets and Hypoallergenic Properties - Queen Size, Navy Blue",
         sku: searchValue,
-        reason_returned: "Defective item",
+        reason_returned: "Customer decided they preferred a different color after seeing it in their bedroom lighting",
         order_quantity: 3,
         return_quantity: 2,
         Inventory: 45,

@@ -103,10 +103,10 @@ const Home = () => {
             </div>
 
             {/* Return Information */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold mb-4">Return Information</h3>
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold mb-6">Return Information</h3>
               
-              <div className="grid grid-cols-1 gap-3 text-sm">
+              <div className="grid grid-cols-1 gap-5 text-base">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground flex items-center gap-2">
                     <MapPin className="w-4 h-4" />

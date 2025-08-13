@@ -5,67 +5,246 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Warehouse Return Processing System{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <script>
-        // Tailwind config
+        // Tailwind config matching React version exactly
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        border: "hsl(214.3 31.8% 91.4%)",
-                        input: "hsl(214.3 31.8% 91.4%)",
-                        ring: "hsl(262.1 83.3% 57.8%)",
+                        border: "hsl(217 32% 17%)",
+                        input: "hsl(217 32% 17%)",
+                        ring: "hsl(194 100% 47%)",
                         background: "hsl(220 26% 4%)",
-                        foreground: "hsl(210 20% 98%)",
+                        foreground: "hsl(210 40% 98%)",
                         primary: {
-                            DEFAULT: "hsl(195 100% 60%)",
-                            foreground: "hsl(210 20% 98%)",
+                            DEFAULT: "hsl(232 85% 20%)",
+                            foreground: "hsl(210 40% 98%)",
+                            glow: "hsl(194 100% 47%)",
                         },
                         secondary: {
-                            DEFAULT: "hsl(220 25% 15%)",
-                            foreground: "hsl(210 20% 98%)",
+                            DEFAULT: "hsl(222 47% 12%)",
+                            foreground: "hsl(210 40% 98%)",
                         },
                         destructive: {
-                            DEFAULT: "hsl(0 72% 51%)",
-                            foreground: "hsl(210 20% 98%)",
+                            DEFAULT: "hsl(0 84% 60%)",
+                            foreground: "hsl(210 40% 98%)",
                         },
                         muted: {
-                            DEFAULT: "hsl(220 25% 15%)",
-                            foreground: "hsl(217.9 10.6% 64.9%)",
+                            DEFAULT: "hsl(217 32% 15%)",
+                            foreground: "hsl(215 20% 65%)",
                         },
                         accent: {
-                            DEFAULT: "hsl(195 100% 60%)",
-                            foreground: "hsl(210 20% 98%)",
+                            DEFAULT: "hsl(194 100% 47%)",
+                            foreground: "hsl(220 26% 4%)",
                         },
                         popover: {
-                            DEFAULT: "hsl(220 30% 8%)",
-                            foreground: "hsl(210 20% 98%)",
+                            DEFAULT: "hsl(222 47% 8%)",
+                            foreground: "hsl(210 40% 98%)",
                         },
                         card: {
-                            DEFAULT: "hsl(220 30% 8%)",
-                            foreground: "hsl(210 20% 98%)",
+                            DEFAULT: "hsl(222 47% 8%)",
+                            foreground: "hsl(210 40% 98%)",
                         },
                     },
                     borderRadius: {
-                        lg: "0.5rem",
-                        md: "calc(0.5rem - 2px)",
-                        sm: "calc(0.5rem - 4px)",
+                        lg: "0.75rem",
+                        md: "calc(0.75rem - 2px)",
+                        sm: "calc(0.75rem - 4px)",
                     },
+                    animation: {
+                        'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'gradient-shift': 'gradient-shift 3s ease infinite',
+                    },
+                    keyframes: {
+                        'glow-pulse': {
+                            '0%, 100%': { 
+                                boxShadow: '0 0 60px hsl(194 100% 47% / 0.3)',
+                                transform: 'scale(1)'
+                            },
+                            '50%': { 
+                                boxShadow: '0 0 80px hsl(194 100% 47% / 0.4)',
+                                transform: 'scale(1.02)'
+                            }
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        'gradient-shift': {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                            '100%': { backgroundPosition: '0% 50%' }
+                        }
+                    }
                 }
             }
         }
     </script>
+    <style>
+        /* CSS Variables matching React design system exactly */
+        :root {
+            --gradient-primary: linear-gradient(135deg, hsl(232 85% 20%), hsl(194 100% 47%));
+            --gradient-hero: linear-gradient(135deg, hsl(220 26% 4%) 0%, hsl(232 85% 20%) 50%, hsl(194 100% 47%) 100%);
+            --gradient-card: linear-gradient(145deg, hsl(222 47% 8%), hsl(222 47% 12%));
+            --shadow-primary: 0 10px 30px -10px hsl(232 85% 20% / 0.4);
+            --shadow-glow: 0 0 60px hsl(194 100% 47% / 0.3);
+            --shadow-card: 0 8px 32px hsl(220 26% 4% / 0.6);
+            --shadow-elegant: 0 20px 60px -10px hsl(232 85% 20% / 0.5);
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Design system utility classes */
+        .gradient-primary { background: var(--gradient-primary); }
+        .gradient-hero { background: var(--gradient-hero); }
+        .gradient-card { background: var(--gradient-card); }
+        .shadow-elegant { box-shadow: var(--shadow-elegant); }
+        .shadow-glow { box-shadow: var(--shadow-glow); }
+        .shadow-card { box-shadow: var(--shadow-card); }
+        .transition-smooth { transition: var(--transition-smooth); }
+        
+        .hover-glow:hover {
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-2px);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-elegant);
+        }
+
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Button styles matching React variants */
+        .btn-hero {
+            background: var(--gradient-primary);
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.75rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-card);
+        }
+        
+        .btn-hero:hover {
+            box-shadow: var(--shadow-glow);
+            transform: scale(1.05);
+        }
+
+        .btn-outline {
+            background: hsl(222 47% 8% / 0.5);
+            backdrop-filter: blur(8px);
+            color: hsl(210 40% 98%);
+            border: 1px solid hsl(217 32% 17%);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        
+        .btn-outline:hover {
+            background: hsl(222 47% 12%);
+            box-shadow: var(--shadow-card);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: hsl(215 20% 65%);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        
+        .btn-ghost:hover {
+            background: hsl(194 100% 47% / 0.1);
+            color: hsl(210 40% 98%);
+        }
+
+        /* Logo component styles */
+        .logo {
+            font-weight: 300;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu {
+            background: hsl(222 47% 8% / 0.95);
+            backdrop-filter: blur(16px);
+        }
+    </style>
 </head>
 <body class="min-h-screen bg-background text-foreground">
-    <div class="container mx-auto px-4">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="logo text-2xl cursor-pointer hover-glow transition-smooth">
+                        amaze-software
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-foreground hover:text-accent transition-smooth">Home</a>
+                    <a href="/tutorial" class="text-foreground hover:text-accent transition-smooth">Tutorial</a>
+                    <a href="/support" class="text-foreground hover:text-accent transition-smooth">Support</a>
+                    <a href="/jobs" class="text-foreground hover:text-accent transition-smooth">Jobs</a>
+                    <button class="btn-ghost">Login</button>
+                    <button class="btn-hero">Start Free Trial</button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="btn-ghost p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden mobile-menu border-b border-border">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="block px-3 py-2 text-foreground hover:text-accent transition-smooth">Home</a>
+                <a href="/tutorial" class="block px-3 py-2 text-foreground hover:text-accent transition-smooth">Tutorial</a>
+                <a href="/support" class="block px-3 py-2 text-foreground hover:text-accent transition-smooth">Support</a>
+                <a href="/jobs" class="block px-3 py-2 text-foreground hover:text-accent transition-smooth">Jobs</a>
+                <div class="px-3 py-2 space-y-2">
+                    <button class="btn-ghost w-full text-left">Login</button>
+                    <button class="btn-hero w-full">Start Free Trial</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Add top padding for fixed navbar -->
+    <div class="pt-16">
         {% block content %}{% endblock %}
     </div>
     
-    <!-- Toast notification area -->
-    <div id="toast-container" class="fixed top-4 right-4 z-50"></div>
-    
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
     {% block scripts %}{% endblock %}
 </body>
 </html>

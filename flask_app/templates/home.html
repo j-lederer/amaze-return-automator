@@ -1,123 +1,467 @@
 {% extends "base.html" %}
 
-{% block title %}Warehouse Return Processing System{% endblock %}
+{% block title %}Home - Warehouse Return Processing System{% endblock %}
 
 {% block content %}
 <div class="min-h-screen bg-background">
-    <h1 class="text-white text-4xl p-8">Test - Landing Page Loading</h1>
-    <main>
-        <!-- Hero Section -->
-        <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-            <!-- Background gradient -->
-            <div class="absolute inset-0 gradient-hero"></div>
-            <div class="absolute inset-0 bg-black/20"></div>
-            
-            <!-- Hero content -->
-            <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-                <div class="animate-fade-in">
-                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                        Transform Your
-                        <span class="gradient-primary bg-clip-text text-transparent block">Warehouse Returns</span>
-                    </h1>
-                    <p class="text-xl sm:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-                        Streamline your return processing with our intelligent automation system. 
-                        Reduce costs, improve efficiency, and deliver exceptional customer experiences.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a href="#get-started" class="btn-hero text-lg px-8 py-4 hover-glow">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
-                            Get Started Free
-                        </a>
-                        <a href="#demo" class="btn-outline text-lg px-8 py-4 hover-lift">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-9-4V8a3 3 0 013-3h2a3 3 0 013 3v2M7 21h10a2 2 0 002-2v-2a2 2 0 00-2-2H7a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
-                            </svg>
-                            Watch Demo
-                        </a>
-                    </div>
-                </div>
+    <!-- Header -->
+    <div class="gradient-card border-b border-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center">
+                <div class="font-light text-5xl gradient-primary bg-clip-text text-transparent mb-4">amaze-software</div>
+                <p class="text-muted-foreground">Warehouse Return Processing System</p>
             </div>
-            
-            <!-- Floating elements -->
-            <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-float"></div>
-            <div class="absolute bottom-20 right-10 w-16 h-16 bg-accent/20 rounded-full animate-float" style="animation-delay: -1s;"></div>
-            <div class="absolute top-1/2 left-1/4 w-12 h-12 bg-primary/20 rounded-full animate-float" style="animation-delay: -2s;"></div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Features Section -->
-        <section class="py-20 bg-background">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl sm:text-5xl font-bold mb-6">
-                        <span class="gradient-primary bg-clip-text text-transparent">Powerful Features</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Search Section -->
+        <div class="gradient-card p-8 rounded-2xl shadow-card mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Search Form -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path>
+                        </svg>
+                        Scan For Info
                     </h2>
-                    <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-                        Everything you need to optimize your warehouse return operations
-                    </p>
+                    
+                    <form id="searchForm" class="space-y-4">
+                        <div class="flex gap-4">
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Barcode"
+                                class="flex-1 text-lg px-4 py-3 bg-muted/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                                autofocus
+                            />
+                            <button type="submit" class="btn-hero px-6 py-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Tracking ID Indicator -->
+                    <div id="trackingIndicator" class="mt-4 p-3 rounded-lg border border-accent/20 bg-accent/5 hidden">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path>
+                            </svg>
+                            <span class="text-sm text-muted-foreground">
+                                Showing information for Tracking ID:
+                            </span>
+                            <span id="currentTrackingId" class="font-mono text-sm font-semibold text-accent bg-accent/10 px-2 py-1 rounded">
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="gradient-card p-8 rounded-2xl shadow-card hover-lift">
-                        <div class="gradient-primary p-3 rounded-xl w-fit mb-6 shadow-glow">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
+                <!-- Return Information -->
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold mb-6">Return Information</h3>
+                    
+                    <div class="grid grid-cols-1 gap-5 text-base">
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                Address:
+                            </span>
+                            <span id="address" class="text-right">-</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-foreground">Lightning Fast Processing</h3>
-                        <p class="text-muted-foreground leading-relaxed">
-                            Process returns 10x faster with our automated scanning and classification system
-                        </p>
-                    </div>
-
-                    <!-- Feature 2 -->
-                    <div class="gradient-card p-8 rounded-2xl shadow-card hover-lift">
-                        <div class="gradient-primary p-3 rounded-xl w-fit mb-6 shadow-glow">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                            </svg>
+                        
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                </svg>
+                                Item Name:
+                            </span>
+                            <span id="itemName" class="text-right">-</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-foreground">Real-Time Analytics</h3>
-                        <p class="text-muted-foreground leading-relaxed">
-                            Track performance metrics and gain insights to optimize your return operations
-                        </p>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="gradient-card p-8 rounded-2xl shadow-card hover-lift">
-                        <div class="gradient-primary p-3 rounded-xl w-fit mb-6 shadow-glow">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
+                        
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path>
+                                </svg>
+                                SKU:
+                            </span>
+                            <span id="sku" class="text-right font-mono">-</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-foreground">Customer Satisfaction</h3>
-                        <p class="text-muted-foreground leading-relaxed">
-                            Provide faster refunds and better service to keep your customers happy
-                        </p>
+                        
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                Reason:
+                            </span>
+                            <span id="reason" class="text-right">-</span>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground">Items Bought:</span>
+                            <span id="orderQuantity" class="text-right">-</span>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground">Items Returned:</span>
+                            <span id="returnQuantity" class="text-right">-</span>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground">Est. Inventory:</span>
+                            <span id="inventory" class="text-right">-</span>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                </svg>
+                                Refund Amount:
+                            </span>
+                            <span id="refundAmount" class="text-right font-semibold text-green-400">-</span>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                </svg>
+                                Restocking Fee:
+                            </span>
+                            <span id="restockingFee" class="text-right font-semibold text-red-400">-</span>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <span class="text-muted-foreground">In Queue:</span>
+                            <span id="inQueue" class="text-right">
+                                <span class="bg-gray-500/20 text-gray-400 text-xs px-2 py-1 rounded">No</span>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- CTA Section -->
-        <section class="py-20 relative overflow-hidden">
-            <div class="absolute inset-0 gradient-hero"></div>
-            <div class="absolute inset-0 bg-black/20"></div>
+            <!-- Add to Queue Button -->
+            <div id="addToQueueSection" class="mt-8 text-center hidden">
+                <button id="addToQueueBtn" class="btn-hero text-lg px-8 py-4">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                    Add to Queue
+                </button>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <button id="refreshBtn" class="btn-outline h-auto py-4 hover-lift">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                </svg>
+                Refresh Data
+            </button>
             
-            <div class="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">
-                    Ready to Transform Your Operations?
-                </h2>
-                <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                    Join thousands of warehouses already using our platform to streamline their returns
-                </p>
-                <a href="#get-started" class="btn-hero text-lg px-8 py-4 hover-glow">
-                    Start Your Free Trial
-                </a>
+            <button id="clearBtn" class="btn-outline h-auto py-4 hover-lift">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                </svg>
+                Clear Search
+            </button>
+            
+            <button class="btn-outline h-auto py-4 hover-lift">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Download PDF
+            </button>
+            
+            <button class="btn-outline h-auto py-4 hover-lift">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Download Slim
+            </button>
+        </div>
+
+        <!-- Refresh Status -->
+        <div class="gradient-card p-6 rounded-2xl shadow-card mb-8">
+            <h3 class="text-xl font-semibold mb-4">Refresh Status</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-border">
+                            <th class="text-left p-2">Status</th>
+                            <th class="text-left p-2">Complete</th>
+                            <th class="text-left p-2">Last Attempt</th>
+                            <th class="text-left p-2">Last Successful</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-2">
+                                <span id="refreshStatus" class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded">idle</span>
+                            </td>
+                            <td class="p-2">
+                                <svg id="refreshComplete" class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </td>
+                            <td id="lastAttempt" class="p-2 text-sm text-muted-foreground">2024-01-15 14:30:00</td>
+                            <td id="lastSuccess" class="p-2 text-sm text-muted-foreground">2024-01-15 14:32:15</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </section>
-    </main>
+        </div>
+
+        <!-- Queue Section -->
+        <div class="gradient-card p-8 rounded-2xl shadow-card">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Queue (<span id="queueCount">{{ queue_count }}</span>)</h2>
+                <div class="flex gap-4">
+                    <button id="clearQueueBtn" class="btn-outline hover-lift">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        </svg>
+                        Clear Queue
+                    </button>
+                    <button class="btn-hero hover-glow">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                        Add Queue to Jobs
+                    </button>
+                </div>
+            </div>
+            
+            <div id="queueEmpty" class="text-center py-12 {% if queue_data %}hidden{% endif %}">
+                <h4 class="text-xl font-semibold mb-2">No items in queue</h4>
+                <p class="text-muted-foreground">Add tracking IDs to get started!</p>
+            </div>
+            
+            <div id="queueTable" class="overflow-x-auto {% if not queue_data %}hidden{% endif %}">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-border">
+                            <th class="text-left p-4 font-semibold">Tracking IDs</th>
+                            <th class="text-left p-4 font-semibold">SKU</th>
+                            <th class="text-left p-4 font-semibold">Quantity Returned</th>
+                            <th class="text-left p-4 font-semibold">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="queueTableBody">
+                        {% for item in queue_data %}
+                        <tr class="border-b border-border/50 hover:bg-muted/10 transition-colors">
+                            <td class="p-4 font-mono text-accent">{{ item.tracking_id }}</td>
+                            <td class="p-4">{{ item.sku }}</td>
+                            <td class="p-4">{{ item.quantity_returned }}</td>
+                            <td class="p-4">
+                                <button class="remove-item-btn btn-ghost hover:bg-destructive/20 hover:text-destructive p-2 rounded" data-tracking="{{ item.tracking_id }}">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script>
+// Search functionality
+document.getElementById('searchForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const searchValue = document.getElementById('searchInput').value.trim();
+    
+    if (!searchValue) return;
+
+    try {
+        const response = await fetch('/search', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ tracking_id: searchValue })
+        });
+
+        const result = await response.json();
+        
+        if (result.success) {
+            // Update tracking indicator
+            document.getElementById('currentTrackingId').textContent = result.tracking_id;
+            document.getElementById('trackingIndicator').classList.remove('hidden');
+            
+            // Update return information
+            const data = result.data;
+            document.getElementById('address').textContent = data.address || '-';
+            document.getElementById('itemName').textContent = data.item_name || '-';
+            document.getElementById('sku').textContent = data.sku || '-';
+            document.getElementById('reason').textContent = data.reason_returned || '-';
+            document.getElementById('orderQuantity').textContent = data.order_quantity || '-';
+            document.getElementById('returnQuantity').textContent = data.return_quantity || '-';
+            document.getElementById('inventory').textContent = data.inventory || '-';
+            document.getElementById('refundAmount').textContent = data.refund_amount ? `$${data.refund_amount}` : '-';
+            document.getElementById('restockingFee').textContent = data.restocking_fee ? `$${data.restocking_fee}` : '-';
+            
+            // Show add to queue button
+            document.getElementById('addToQueueSection').classList.remove('hidden');
+        }
+    } catch (error) {
+        console.error('Search error:', error);
+    }
+});
+
+// Clear search
+document.getElementById('clearBtn').addEventListener('click', async function() {
+    try {
+        await fetch('/clear_search', { method: 'POST' });
+        
+        // Reset UI
+        document.getElementById('searchInput').value = '';
+        document.getElementById('trackingIndicator').classList.add('hidden');
+        document.getElementById('addToQueueSection').classList.add('hidden');
+        
+        // Clear all info fields
+        const fields = ['address', 'itemName', 'sku', 'reason', 'orderQuantity', 'returnQuantity', 'inventory', 'refundAmount', 'restockingFee'];
+        fields.forEach(field => {
+            document.getElementById(field).textContent = '-';
+        });
+        
+        document.getElementById('inQueue').innerHTML = '<span class="bg-gray-500/20 text-gray-400 text-xs px-2 py-1 rounded">No</span>';
+    } catch (error) {
+        console.error('Clear error:', error);
+    }
+});
+
+// Add to queue
+document.getElementById('addToQueueBtn').addEventListener('click', async function() {
+    const trackingId = document.getElementById('currentTrackingId').textContent;
+    const sku = document.getElementById('sku').textContent;
+    const quantity = document.getElementById('returnQuantity').textContent;
+    
+    if (!trackingId || trackingId === '-') return;
+
+    try {
+        const response = await fetch('/add_to_queue', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                tracking_id: trackingId,
+                sku: sku,
+                quantity_returned: parseInt(quantity) || 1
+            })
+        });
+
+        const result = await response.json();
+        
+        if (result.success) {
+            // Update queue count
+            document.getElementById('queueCount').textContent = result.queue_count;
+            
+            // Update in queue status
+            document.getElementById('inQueue').innerHTML = '<span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded">Yes</span>';
+            
+            // Refresh the page to show updated queue
+            location.reload();
+        }
+    } catch (error) {
+        console.error('Add to queue error:', error);
+    }
+});
+
+// Remove from queue
+document.addEventListener('click', async function(e) {
+    if (e.target.closest('.remove-item-btn')) {
+        const btn = e.target.closest('.remove-item-btn');
+        const trackingId = btn.dataset.tracking;
+        
+        try {
+            const response = await fetch('/remove_from_queue', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ tracking_id: trackingId })
+            });
+
+            const result = await response.json();
+            
+            if (result.success) {
+                // Update queue count
+                document.getElementById('queueCount').textContent = result.queue_count;
+                
+                // Remove the row
+                btn.closest('tr').remove();
+                
+                // Show/hide empty message
+                if (result.queue_count === 0) {
+                    document.getElementById('queueEmpty').classList.remove('hidden');
+                    document.getElementById('queueTable').classList.add('hidden');
+                }
+            }
+        } catch (error) {
+            console.error('Remove from queue error:', error);
+        }
+    }
+});
+
+// Clear queue
+document.getElementById('clearQueueBtn').addEventListener('click', async function() {
+    if (!confirm('Are you sure you want to clear the entire queue?')) return;
+    
+    try {
+        const response = await fetch('/clear_queue', { method: 'POST' });
+        const result = await response.json();
+        
+        if (result.success) {
+            // Update queue count
+            document.getElementById('queueCount').textContent = '0';
+            
+            // Show empty message
+            document.getElementById('queueEmpty').classList.remove('hidden');
+            document.getElementById('queueTable').classList.add('hidden');
+        }
+    } catch (error) {
+        console.error('Clear queue error:', error);
+    }
+});
+
+// Refresh data
+document.getElementById('refreshBtn').addEventListener('click', async function() {
+    try {
+        const response = await fetch('/refresh_data', { method: 'POST' });
+        const result = await response.json();
+        
+        if (result.success) {
+            // Update refresh status
+            document.getElementById('refreshStatus').textContent = 'refreshing';
+            document.getElementById('refreshStatus').className = 'bg-yellow-500/20 text-yellow-400 text-xs px-2 py-1 rounded';
+            
+            setTimeout(() => {
+                document.getElementById('refreshStatus').textContent = 'complete';
+                document.getElementById('refreshStatus').className = 'bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded';
+                document.getElementById('lastAttempt').textContent = new Date().toLocaleString();
+                document.getElementById('lastSuccess').textContent = new Date().toLocaleString();
+            }, 2000);
+        }
+    } catch (error) {
+        console.error('Refresh error:', error);
+    }
+});
+</script>
 {% endblock %}

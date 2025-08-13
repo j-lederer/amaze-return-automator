@@ -1,0 +1,439 @@
+{% extends "base.html" %}
+
+{% block title %}Warehouse Return Processing System{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-background">
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <!-- Background gradient -->
+            <div class="absolute inset-0 gradient-hero"></div>
+            <div class="absolute inset-0 bg-black/20"></div>
+            
+            <!-- Hero content -->
+            <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+                <div class="animate-fade-in">
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                        Transform Your
+                        <span class="gradient-primary bg-clip-text text-transparent block">Warehouse Operations</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+                        Streamline your return processing with intelligent automation. Built specifically for FBM sellers who need lightning-fast, accurate processing.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a href="/home" class="btn-hero text-lg px-8 py-4 hover-glow">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            Start Free Trial
+                        </a>
+                        <a href="#demo" class="btn-outline text-lg px-8 py-4 hover-lift">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-9-4V8a3 3 0 013-3h2a3 3 0 013 3v2M7 21h10a2 2 0 002-2v-2a2 2 0 00-2-2H7a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
+                            </svg>
+                            Watch Demo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-white mb-2">4s</div>
+                        <div class="text-white/80">Per Return Processing</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-white mb-2">91%</div>
+                        <div class="text-white/80">Time Savings</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-white mb-2">24/7</div>
+                        <div class="text-white/80">Automated Processing</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Floating elements -->
+            <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-float"></div>
+            <div class="absolute bottom-20 right-10 w-16 h-16 bg-accent/20 rounded-full animate-float" style="animation-delay: -1s;"></div>
+            <div class="absolute top-1/2 left-1/4 w-12 h-12 bg-primary/20 rounded-full animate-float" style="animation-delay: -2s;"></div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20 bg-background">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-bold mb-6">
+                        <span class="gradient-primary bg-clip-text text-transparent">Powerful Features</span>
+                    </h2>
+                    <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                        Everything you need to optimize your warehouse return operations
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="gradient-card p-8 rounded-2xl shadow-card hover-lift">
+                        <div class="gradient-primary p-3 rounded-xl w-fit mb-6 shadow-glow">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-foreground">QR Code Scanning</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            Instant barcode recognition for immediate product identification and processing
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="gradient-card p-8 rounded-2xl shadow-card hover-lift">
+                        <div class="gradient-primary p-3 rounded-xl w-fit mb-6 shadow-glow">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-foreground">Lightning Fast Processing</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            Process returns in under 4 seconds with our optimized workflow system
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="gradient-card p-8 rounded-2xl shadow-card hover-lift">
+                        <div class="gradient-primary p-3 rounded-xl w-fit mb-6 shadow-glow">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-foreground">Smart Automation</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            Intelligent algorithms handle complex return decisions automatically
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="gradient-card p-8 rounded-2xl shadow-card hover-lift">
+                        <div class="gradient-primary p-3 rounded-xl w-fit mb-6 shadow-glow">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-foreground">Real-Time Analytics</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            Track performance metrics and gain insights to optimize operations
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="gradient-card p-8 rounded-2xl shadow-card hover-lift">
+                        <div class="gradient-primary p-3 rounded-xl w-fit mb-6 shadow-glow">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-foreground">Secure & Reliable</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            Enterprise-grade security with 99.9% uptime guarantee
+                        </p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="gradient-card p-8 rounded-2xl shadow-card hover-lift">
+                        <div class="gradient-primary p-3 rounded-xl w-fit mb-6 shadow-glow">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-foreground">Easy Integration</h3>
+                        <p class="text-muted-foreground leading-relaxed">
+                            Seamlessly connect with your existing warehouse management systems
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="py-20 bg-muted/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-bold mb-6">
+                        <span class="gradient-primary bg-clip-text text-transparent">Before vs After</span>
+                    </h2>
+                    <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                        See the dramatic difference our platform makes to your operations
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Before -->
+                    <div class="gradient-card p-8 rounded-2xl shadow-card">
+                        <div class="text-center mb-8">
+                            <div class="w-16 h-16 bg-destructive/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-destructive mb-2">Before</h3>
+                            <p class="text-muted-foreground">Manual Processing Nightmare</p>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-destructive mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <span class="text-muted-foreground">15+ minutes per return item</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-destructive mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Manual data entry errors</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-destructive mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Complex spreadsheet tracking</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-destructive mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Delayed customer refunds</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-destructive mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <span class="text-muted-foreground">No real-time visibility</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- After -->
+                    <div class="gradient-card p-8 rounded-2xl shadow-card border-2 border-primary/20">
+                        <div class="text-center mb-8">
+                            <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-glow">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold gradient-primary bg-clip-text text-transparent mb-2">After</h3>
+                            <p class="text-muted-foreground">Automated Excellence</p>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">4 seconds per return item</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">99.9% accuracy with automation</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Real-time dashboard insights</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Instant customer notifications</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Complete process visibility</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="py-20 bg-background">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-bold mb-6">
+                        <span class="gradient-primary bg-clip-text text-transparent">Simple Pricing</span>
+                    </h2>
+                    <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                        Choose the plan that scales with your business
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Starter Plan -->
+                    <div class="gradient-card p-8 rounded-2xl shadow-card">
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                            <div class="text-4xl font-bold mb-4">
+                                <span class="gradient-primary bg-clip-text text-transparent">$29</span>
+                                <span class="text-lg text-muted-foreground">/month</span>
+                            </div>
+                            <p class="text-muted-foreground">Perfect for small operations</p>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Up to 500 returns/month</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Basic automation</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Email support</span>
+                            </li>
+                        </ul>
+                        <button class="btn-outline w-full text-center py-3">
+                            Start Free Trial
+                        </button>
+                    </div>
+
+                    <!-- Professional Plan -->
+                    <div class="gradient-card p-8 rounded-2xl shadow-card border-2 border-primary/20 relative">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                            <span class="gradient-primary px-4 py-2 rounded-full text-white text-sm font-semibold">
+                                Most Popular
+                            </span>
+                        </div>
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                            <div class="text-4xl font-bold mb-4">
+                                <span class="gradient-primary bg-clip-text text-transparent">$99</span>
+                                <span class="text-lg text-muted-foreground">/month</span>
+                            </div>
+                            <p class="text-muted-foreground">For growing businesses</p>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Up to 2,500 returns/month</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Advanced automation</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Priority support</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Analytics dashboard</span>
+                            </li>
+                        </ul>
+                        <button class="btn-hero w-full text-center py-3">
+                            Start Free Trial
+                        </button>
+                    </div>
+
+                    <!-- Enterprise Plan -->
+                    <div class="gradient-card p-8 rounded-2xl shadow-card">
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                            <div class="text-4xl font-bold mb-4">
+                                <span class="gradient-primary bg-clip-text text-transparent">Custom</span>
+                            </div>
+                            <p class="text-muted-foreground">For large-scale operations</p>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Unlimited returns</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Custom integrations</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">24/7 dedicated support</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-muted-foreground">Custom reporting</span>
+                            </li>
+                        </ul>
+                        <button class="btn-outline w-full text-center py-3">
+                            Contact Sales
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get Started Section -->
+        <section class="py-20 bg-muted/30">
+            <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl sm:text-5xl font-bold mb-6">
+                    <span class="gradient-primary bg-clip-text text-transparent">Ready to Get Started?</span>
+                </h2>
+                <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                    Join thousands of FBM sellers who have already transformed their return processing
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/home" class="btn-hero text-lg px-8 py-4 hover-glow">
+                        Start Your Free Trial
+                    </a>
+                    <a href="/support" class="btn-outline text-lg px-8 py-4 hover-lift">
+                        Talk to Sales
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 relative overflow-hidden">
+            <div class="absolute inset-0 gradient-hero"></div>
+            <div class="absolute inset-0 bg-black/20"></div>
+            
+            <div class="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">
+                    Ready to Transform Your Operations?
+                </h2>
+                <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                    Join thousands of warehouses already using our platform to streamline their returns
+                </p>
+                <a href="/home" class="btn-hero text-lg px-8 py-4 hover-glow">
+                    Start Your Free Trial
+                </a>
+            </div>
+        </section>
+    </main>
+</div>
+{% endblock %}

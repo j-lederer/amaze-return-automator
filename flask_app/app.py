@@ -26,6 +26,11 @@ queue_data = [
 ]
 
 @app.route('/')
+def landing():
+    """Landing page"""
+    return render_template('landing.html')
+
+@app.route('/home')
 def home():
     """Main dashboard page"""
     return render_template('home.html', 

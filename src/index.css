@@ -8,35 +8,54 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark elegant theme with amaze-software branding */
+    --background: 220 26% 4%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* Primary colors from logo gradient */
+    --primary: 232 85% 20%;  /* #000A68 */
     --primary-foreground: 210 40% 98%;
+    --primary-glow: 194 100% 47%; /* #00C4EE */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 222 47% 12%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 217 32% 15%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 194 100% 47%; /* #00C4EE */
+    --accent-foreground: 220 26% 4%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 194 100% 47%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(232 85% 20%), hsl(194 100% 47%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 26% 4%) 0%, hsl(232 85% 20%) 50%, hsl(194 100% 47%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222 47% 8%), hsl(222 47% 12%));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(194 100% 47% / 0.3), transparent 70%);
+    
+    /* Shadows with brand colors */
+    --shadow-primary: 0 10px 30px -10px hsl(232 85% 20% / 0.4);
+    --shadow-glow: 0 0 60px hsl(194 100% 47% / 0.3);
+    --shadow-card: 0 8px 32px hsl(220 26% 4% / 0.6);
+    --shadow-elegant: 0 20px 60px -10px hsl(232 85% 20% / 0.5);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +119,52 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+@layer components {
+  /* Hero animations */
+  @keyframes glow-pulse {
+    0%, 100% { 
+      box-shadow: var(--shadow-glow);
+      transform: scale(1);
+    }
+    50% { 
+      box-shadow: 0 0 80px hsl(194 100% 47% / 0.4);
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Utility classes for our design system */
+  .gradient-primary { background: var(--gradient-primary); }
+  .gradient-hero { background: var(--gradient-hero); }
+  .gradient-card { background: var(--gradient-card); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .transition-smooth { transition: var(--transition-smooth); }
+  .transition-bounce { transition: var(--transition-bounce); }
+
+  /* Interactive elements */
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-elegant);
   }
 }

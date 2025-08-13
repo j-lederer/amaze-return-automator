@@ -109,6 +109,21 @@ const Home = () => {
                   </Button>
                 </div>
               </form>
+              
+              {/* Tracking ID Indicator */}
+              {currentTrackingId && returnData && (
+                <div className="mt-4 p-3 rounded-lg border border-accent/20 bg-accent/5">
+                  <div className="flex items-center gap-3">
+                    <QrCode className="w-4 h-4 text-accent" />
+                    <span className="text-sm text-muted-foreground">
+                      Showing information for Tracking ID:
+                    </span>
+                    <span className="font-mono text-sm font-semibold text-accent bg-accent/10 px-2 py-1 rounded">
+                      {currentTrackingId}
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Return Information */}
@@ -189,21 +204,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-
-          {/* Tracking ID Indicator */}
-          {currentTrackingId && returnData && (
-            <div className="mt-8 p-4 rounded-lg border border-accent/20 bg-accent/5">
-              <div className="flex items-center justify-center gap-3">
-                <QrCode className="w-5 h-5 text-accent" />
-                <span className="text-sm text-muted-foreground">
-                  Showing information for Tracking ID:
-                </span>
-                <span className="font-mono text-base font-semibold text-accent bg-accent/10 px-3 py-1 rounded-md">
-                  {currentTrackingId}
-                </span>
-              </div>
-            </div>
-          )}
 
           {/* Add to Queue Button */}
           {returnData && (

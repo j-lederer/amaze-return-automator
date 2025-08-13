@@ -21,6 +21,7 @@ import { useState } from "react";
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState("");
+  const [currentTrackingId, setCurrentTrackingId] = useState("");
   
   // Mock data - replace with actual data
   const [returnData, setReturnData] = useState(null);
@@ -47,6 +48,8 @@ const Home = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchValue.trim()) {
+      // Store the tracking ID that was searched for
+      setCurrentTrackingId(searchValue.trim());
       // Mock return data
       setReturnData({
         address: "123 Main St, City, State 12345",
@@ -60,6 +63,12 @@ const Home = () => {
         refund_amount: "$29.99"
       });
     }
+  };
+
+  const handleClearSearch = () => {
+    setSearchValue("");
+    setCurrentTrackingId("");
+    setReturnData(null);
   };
 
   return (
@@ -181,6 +190,21 @@ const Home = () => {
             </div>
           </div>
 
+          {/* Tracking ID Indicator */}
+          {currentTrackingId && returnData && (
+            <div className="mt-8 p-4 rounded-lg border border-accent/20 bg-accent/5">
+              <div className="flex items-center justify-center gap-3">
+                <QrCode className="w-5 h-5 text-accent" />
+                <span className="text-sm text-muted-foreground">
+                  Showing information for Tracking ID:
+                </span>
+                <span className="font-mono text-base font-semibold text-accent bg-accent/10 px-3 py-1 rounded-md">
+                  {currentTrackingId}
+                </span>
+              </div>
+            </div>
+          )}
+
           {/* Add to Queue Button */}
           {returnData && (
             <div className="mt-8 text-center">
@@ -199,7 +223,7 @@ const Home = () => {
             Refresh Data
           </Button>
           
-          <Button variant="outline" className="h-auto py-4">
+          <Button variant="outline" className="h-auto py-4" onClick={handleClearSearch}>
             <Trash2 className="w-5 h-5 mr-2" />
             Clear Search
           </Button>

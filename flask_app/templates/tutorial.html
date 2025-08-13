@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Tutorial - Warehouse Return Processing System{% endblock %}
+
+{% block content %}
+<div class="min-h-screen space-y-8 py-8">
+    <!-- Header -->
+    <header class="gradient-card rounded-2xl p-8 shadow-elegant border border-border/50">
+        <div class="flex items-center space-x-4">
+            <div class="gradient-primary p-3 rounded-xl shadow-glow">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold gradient-text">Tutorial</h1>
+                <p class="text-muted-foreground">Learn how to use the warehouse return system</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tutorial Steps -->
+    <div class="space-y-8">
+        <!-- Step 1 -->
+        <section class="gradient-card rounded-2xl p-8 shadow-card border border-border/50">
+            <div class="flex items-start space-x-4">
+                <div class="gradient-primary p-3 rounded-xl shadow-glow flex-shrink-0">
+                    <span class="text-white font-bold text-lg">1</span>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold mb-4 text-foreground">Search for Returns</h2>
+                    <p class="text-muted-foreground mb-4">Start by entering a tracking ID in the search field on the dashboard. The system will retrieve all relevant information about the return including address, item details, quantities, and financial information.</p>
+                    <div class="bg-muted/30 p-4 rounded-lg">
+                        <p class="text-sm text-accent font-medium">💡 Tip: You can press Enter after typing the tracking ID to search quickly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2 -->
+        <section class="gradient-card rounded-2xl p-8 shadow-card border border-border/50">
+            <div class="flex items-start space-x-4">
+                <div class="gradient-primary p-3 rounded-xl shadow-glow flex-shrink-0">
+                    <span class="text-white font-bold text-lg">2</span>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold mb-4 text-foreground">Review Return Details</h2>
+                    <p class="text-muted-foreground mb-4">Once a return is found, review all the details including return reason, quantities, and refund amounts. The information is organized into clear sections for easy reading.</p>
+                    <div class="bg-muted/30 p-4 rounded-lg">
+                        <p class="text-sm text-accent font-medium">💡 Tip: Pay special attention to the return quantity vs order quantity to identify partial returns.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3 -->
+        <section class="gradient-card rounded-2xl p-8 shadow-card border border-border/50">
+            <div class="flex items-start space-x-4">
+                <div class="gradient-primary p-3 rounded-xl shadow-glow flex-shrink-0">
+                    <span class="text-white font-bold text-lg">3</span>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold mb-4 text-foreground">Add to Processing Queue</h2>
+                    <p class="text-muted-foreground mb-4">After reviewing the return details, add the item to the processing queue. This allows you to batch process multiple returns efficiently.</p>
+                    <div class="bg-muted/30 p-4 rounded-lg">
+                        <p class="text-sm text-accent font-medium">💡 Tip: The queue counter in the header shows how many items are waiting to be processed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 4 -->
+        <section class="gradient-card rounded-2xl p-8 shadow-card border border-border/50">
+            <div class="flex items-start space-x-4">
+                <div class="gradient-primary p-3 rounded-xl shadow-glow flex-shrink-0">
+                    <span class="text-white font-bold text-lg">4</span>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold mb-4 text-foreground">Manage the Queue</h2>
+                    <p class="text-muted-foreground mb-4">In the Processing Queue section, you can view all queued items, remove individual items, clear the entire queue, or add all items to jobs for processing.</p>
+                    <div class="bg-muted/30 p-4 rounded-lg">
+                        <p class="text-sm text-accent font-medium">💡 Tip: Use 'Add to Jobs' to start batch processing when you're ready.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Features -->
+        <section class="gradient-card rounded-2xl p-8 shadow-card border border-border/50">
+            <h2 class="text-xl font-semibold mb-6 text-foreground">Additional Features</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-3">
+                    <h3 class="font-medium text-accent">Refresh Data</h3>
+                    <p class="text-sm text-muted-foreground">Updates information from external systems to ensure you have the latest data.</p>
+                </div>
+                
+                <div class="space-y-3">
+                    <h3 class="font-medium text-accent">Download Reports</h3>
+                    <p class="text-sm text-muted-foreground">Generate and download processing reports for record keeping and analysis.</p>
+                </div>
+                
+                <div class="space-y-3">
+                    <h3 class="font-medium text-accent">Clear Search</h3>
+                    <p class="text-sm text-muted-foreground">Quickly clear the current search to start fresh with a new tracking ID.</p>
+                </div>
+                
+                <div class="space-y-3">
+                    <h3 class="font-medium text-accent">Queue Management</h3>
+                    <p class="text-sm text-muted-foreground">Remove individual items or clear the entire queue as needed for efficient workflow.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-center space-x-4">
+        <a href="/" class="btn-primary px-6 py-3 rounded-lg font-medium transition-smooth">
+            Back to Dashboard
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Support - Warehouse Return Processing System{% endblock %}
+
+{% block content %}
+<div class="min-h-screen space-y-8 py-8">
+    <!-- Header -->
+    <header class="gradient-card rounded-2xl p-8 shadow-elegant border border-border/50">
+        <div class="flex items-center space-x-4">
+            <div class="gradient-primary p-3 rounded-xl shadow-glow">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold gradient-text">Support Center</h1>
+                <p class="text-muted-foreground">Get help and assistance</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Support Content -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Contact Form -->
+        <section class="gradient-card rounded-2xl p-8 shadow-card border border-border/50">
+            <h2 class="text-xl font-semibold mb-6 text-foreground">Contact Support</h2>
+            
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-muted-foreground mb-2">Name</label>
+                    <input type="text" class="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-smooth" placeholder="Your name">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-muted-foreground mb-2">Email</label>
+                    <input type="email" class="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-smooth" placeholder="your@email.com">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-muted-foreground mb-2">Subject</label>
+                    <input type="text" class="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-smooth" placeholder="How can we help?">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-muted-foreground mb-2">Message</label>
+                    <textarea rows="4" class="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-smooth" placeholder="Describe your issue or question..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-primary w-full py-3 rounded-lg font-medium transition-smooth">
+                    Send Message
+                </button>
+            </form>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="gradient-card rounded-2xl p-8 shadow-card border border-border/50">
+            <h2 class="text-xl font-semibold mb-6 text-foreground">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4">
+                <div class="border-b border-border/30 pb-4">
+                    <h3 class="font-medium text-accent mb-2">How do I search for a return?</h3>
+                    <p class="text-sm text-muted-foreground">Enter the tracking ID in the search field on the dashboard and click Search. The system will retrieve all relevant return information.</p>
+                </div>
+                
+                <div class="border-b border-border/30 pb-4">
+                    <h3 class="font-medium text-accent mb-2">What does the processing queue do?</h3>
+                    <p class="text-sm text-muted-foreground">The queue holds returns that are ready for processing. You can add returns to the queue and then batch process them.</p>
+                </div>
+                
+                <div class="border-b border-border/30 pb-4">
+                    <h3 class="font-medium text-accent mb-2">How do I refresh data?</h3>
+                    <p class="text-sm text-muted-foreground">Click the 'Refresh Data' button to sync with the latest information from your external systems.</p>
+                </div>
+                
+                <div class="pb-4">
+                    <h3 class="font-medium text-accent mb-2">Can I download reports?</h3>
+                    <p class="text-sm text-muted-foreground">Yes, use the 'Download Report' button to generate and download processing reports.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-center space-x-4">
+        <a href="/" class="btn-primary px-6 py-3 rounded-lg font-medium transition-smooth">
+            Back to Dashboard
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Jobs - Warehouse Return Processing System{% endblock %}
+
+{% block content %}
+<div class="min-h-screen space-y-8 py-8">
+    <!-- Header -->
+    <header class="gradient-card rounded-2xl p-8 shadow-elegant border border-border/50">
+        <div class="flex items-center space-x-4">
+            <div class="gradient-primary p-3 rounded-xl shadow-glow">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold gradient-text">Processing Jobs</h1>
+                <p class="text-muted-foreground">Manage and monitor processing jobs</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Jobs Content -->
+    <section class="gradient-card rounded-2xl p-8 shadow-card border border-border/50">
+        <h2 class="text-xl font-semibold mb-6 text-foreground">Active Jobs</h2>
+        
+        <div class="text-center py-12 text-muted-foreground">
+            <svg class="w-16 h-16 mx-auto mb-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+            </svg>
+            <h3 class="text-lg font-medium mb-2">No active jobs</h3>
+            <p>Jobs will appear here when processing tasks are started.</p>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="flex justify-center space-x-4">
+        <a href="/" class="btn-primary px-6 py-3 rounded-lg font-medium transition-smooth">
+            Back to Dashboard
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,308 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-screen space-y-8 py-8">
+    <!-- Header -->
+    <header class="gradient-card rounded-2xl p-8 shadow-elegant border border-border/50">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="gradient-primary p-3 rounded-xl shadow-glow">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-bold gradient-text">Warehouse Return Processing</h1>
+                    <p class="text-muted-foreground">Advanced return management system</p>
+                </div>
+            </div>
+            
+            <!-- Queue indicator -->
+            <div class="text-right">
+                <div class="text-2xl font-bold text-accent" id="queue-count">{{ queue_count }}</div>
+                <div class="text-sm text-muted-foreground">Items in Queue</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="gradient-card rounded-2xl p-8 shadow-card border border-border/50">
+        <h2 class="text-xl font-semibold mb-6 text-foreground">Search Tracking ID</h2>
+        
+        <div class="flex gap-4 mb-6">
+            <div class="flex-1">
+                <input
+                    type="text"
+                    id="tracking-input"
+                    placeholder="Enter tracking ID..."
+                    class="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-smooth"
+                />
+            </div>
+            <button
+                onclick="searchTracking()"
+                class="btn-primary px-8 py-3 rounded-lg font-medium transition-smooth"
+            >
+                Search
+            </button>
+        </div>
+
+        <!-- Return Details -->
+        <div id="return-details" class="hidden space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="gradient-card p-6 rounded-xl border border-border/50">
+                        <h3 class="font-semibold text-accent mb-3">Return Information</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-muted-foreground">Address:</span>
+                                <span class="text-right" id="address"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-muted-foreground">Item Name:</span>
+                                <span class="text-right" id="item-name"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-muted-foreground">SKU:</span>
+                                <span class="text-right" id="sku"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-muted-foreground">Return Reason:</span>
+                                <span class="text-right" id="reason"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="gradient-card p-6 rounded-xl border border-border/50">
+                        <h3 class="font-semibold text-accent mb-3">Quantities & Finance</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-muted-foreground">Order Quantity:</span>
+                                <span class="text-right" id="order-quantity"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-muted-foreground">Return Quantity:</span>
+                                <span class="text-right" id="return-quantity"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-muted-foreground">Current Inventory:</span>
+                                <span class="text-right" id="inventory"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-muted-foreground">Refund Amount:</span>
+                                <span class="text-right font-semibold text-green-400" id="refund-amount"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap gap-4">
+                <button onclick="refreshData()" class="btn-secondary">Refresh Data</button>
+                <button onclick="clearSearch()" class="btn-outline">Clear Search</button>
+                <button onclick="addToQueue()" class="btn-accent">Add to Queue</button>
+                <button onclick="downloadReport()" class="btn-ghost">Download Report</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Queue Section -->
+    <section class="gradient-card rounded-2xl p-8 shadow-card border border-border/50">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-semibold text-foreground">Processing Queue</h2>
+            <div class="flex gap-2">
+                <button onclick="clearQueue()" class="btn-destructive">Clear Queue</button>
+                <button onclick="addQueueToJobs()" class="btn-primary">Add to Jobs</button>
+            </div>
+        </div>
+
+        <div id="queue-content">
+            {% if queue_data %}
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-border/50">
+                            <th class="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Tracking ID</th>
+                            <th class="text-left py-3 px-4 text-sm font-medium text-muted-foreground">SKU</th>
+                            <th class="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Quantity Returned</th>
+                            <th class="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="queue-tbody">
+                        {% for item in queue_data %}
+                        <tr class="border-b border-border/30 hover:bg-muted/30" data-tracking-id="{{ item.tracking_id }}">
+                            <td class="py-3 px-4 text-sm">{{ item.tracking_id }}</td>
+                            <td class="py-3 px-4 text-sm">{{ item.sku }}</td>
+                            <td class="py-3 px-4 text-sm">{{ item.quantity_returned }}</td>
+                            <td class="py-3 px-4">
+                                <button onclick="removeFromQueue('{{ item.tracking_id }}')" class="btn-ghost-small">Remove</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="text-center py-12 text-muted-foreground">
+                <p>No items in queue</p>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let currentTrackingId = '';
+    let currentReturnData = null;
+
+    function searchTracking() {
+        const input = document.getElementById('tracking-input');
+        const trackingId = input.value.trim();
+        
+        if (!trackingId) {
+            showToast('Please enter a tracking ID', 'error');
+            return;
+        }
+
+        fetch('/search', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ tracking_id: trackingId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                currentTrackingId = data.tracking_id;
+                currentReturnData = data.data;
+                displayReturnData(data.data);
+                showToast('Return data found!', 'success');
+            } else {
+                showToast(data.error || 'Error searching tracking ID', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showToast('Network error occurred', 'error');
+        });
+    }
+
+    function displayReturnData(data) {
+        document.getElementById('address').textContent = data.address;
+        document.getElementById('item-name').textContent = data.item_name;
+        document.getElementById('sku').textContent = data.sku;
+        document.getElementById('reason').textContent = data.reason_returned;
+        document.getElementById('order-quantity').textContent = data.order_quantity;
+        document.getElementById('return-quantity').textContent = data.return_quantity;
+        document.getElementById('inventory').textContent = data.inventory;
+        document.getElementById('refund-amount').textContent = `$${data.refund_amount}`;
+        
+        document.getElementById('return-details').classList.remove('hidden');
+    }
+
+    function clearSearch() {
+        fetch('/clear_search', { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('tracking-input').value = '';
+                document.getElementById('return-details').classList.add('hidden');
+                currentTrackingId = '';
+                currentReturnData = null;
+                showToast('Search cleared', 'info');
+            }
+        });
+    }
+
+    function addToQueue() {
+        if (!currentReturnData) {
+            showToast('No return data to add to queue', 'error');
+            return;
+        }
+
+        fetch('/add_to_queue', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                tracking_id: currentTrackingId,
+                sku: currentReturnData.sku,
+                quantity_returned: currentReturnData.return_quantity
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                updateQueueCount(data.queue_count);
+                location.reload(); // Reload to update queue table
+                showToast('Added to queue successfully', 'success');
+            }
+        });
+    }
+
+    function removeFromQueue(trackingId) {
+        fetch('/remove_from_queue', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ tracking_id: trackingId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                updateQueueCount(data.queue_count);
+                document.querySelector(`[data-tracking-id="${trackingId}"]`).remove();
+                showToast('Removed from queue', 'info');
+            }
+        });
+    }
+
+    function clearQueue() {
+        fetch('/clear_queue', { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                updateQueueCount(0);
+                location.reload();
+                showToast('Queue cleared', 'info');
+            }
+        });
+    }
+
+    function updateQueueCount(count) {
+        document.getElementById('queue-count').textContent = count;
+    }
+
+    function refreshData() {
+        fetch('/refresh_data', { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showToast('Data refreshed successfully', 'success');
+            }
+        });
+    }
+
+    function downloadReport() {
+        showToast('Report download started', 'info');
+    }
+
+    function addQueueToJobs() {
+        showToast('Queue added to jobs', 'success');
+    }
+
+    // Enter key support for search
+    document.getElementById('tracking-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            searchTracking();
+        }
+    });
+</script>
+{% endblock %}

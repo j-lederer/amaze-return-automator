@@ -3,41 +3,151 @@
 {% block title %}Jobs - Warehouse Return Processing System{% endblock %}
 
 {% block content %}
-<div class="min-h-screen bg-background py-8">
+<div class="min-h-screen bg-background pt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
-        <header class="gradient-card rounded-2xl p-8 shadow-card border border-border/50 mb-8">
-            <div class="flex items-center space-x-4">
-                <div class="gradient-primary p-3 rounded-xl shadow-glow">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-                    </svg>
-                </div>
-                <div>
-                    <h1 class="text-3xl font-bold gradient-text">Processing Jobs</h1>
-                    <p class="text-muted-foreground">Manage and monitor processing jobs</p>
-                </div>
-            </div>
-        </header>
-
-        <!-- Jobs Content -->
-        <section class="gradient-card rounded-2xl p-8 shadow-card border border-border/50">
-            <h2 class="text-xl font-semibold mb-6 text-foreground">Active Jobs</h2>
+        <div class="gradient-card p-8 rounded-2xl shadow-card mb-8">
+            <h1 class="text-4xl font-bold mb-4 gradient-primary bg-clip-text text-transparent">
+                Jobs Management
+            </h1>
+            <p class="text-lg text-muted-foreground mb-6">
+                The Jobs Table will execute at 12:00 AM EST every night.
+            </p>
             
-            <div class="text-center py-12 text-muted-foreground">
-                <svg class="w-16 h-16 mx-auto mb-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                </svg>
-                <h3 class="text-lg font-medium mb-2">No active jobs</h3>
-                <p>Jobs will appear here when processing tasks are started.</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="/tasks" class="btn-outline px-4 py-2 rounded-lg">
+                    <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                    </svg>
+                    Tasks
+                </a>
+                <a href="/" class="btn-outline px-4 py-2 rounded-lg">
+                    <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Back to Home
+                </a>
             </div>
-        </section>
+        </div>
 
-        <!-- Navigation -->
-        <div class="flex justify-center space-x-4 mt-8">
-            <a href="/" class="btn-hero px-6 py-3 rounded-lg font-medium transition-smooth">
-                Back to Dashboard
-            </a>
+        <!-- Active Jobs Section -->
+        <div class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-9-4V8a3 3 0 013-3h2a3 3 0 013 3v2M7 21h10a2 2 0 002-2v-2a2 2 0 00-2-2H7a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
+                    </svg>
+                    Active Jobs
+                </h2>
+                <button class="btn-hero px-4 py-2 rounded-lg" onclick="if(confirm('Execute All Jobs in Jobs Table')) { console.log('Execute all'); }">
+                    <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Execute All Jobs
+                </button>
+            </div>
+            
+            <div class="gradient-card p-8 rounded-2xl shadow-card text-center">
+                <h4 class="text-xl font-semibold mb-2">No Active Jobs</h4>
+                <p class="text-muted-foreground">There are no upcoming jobs in the queue.</p>
+            </div>
+        </div>
+
+        <!-- Saved for Later Section -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold flex items-center gap-3 mb-6">
+                <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                </svg>
+                Saved for Later
+            </h2>
+            
+            <div class="gradient-card p-8 rounded-2xl shadow-card text-center">
+                <h4 class="text-xl font-semibold mb-2">No Saved Jobs</h4>
+                <p class="text-muted-foreground">You haven't saved any jobs for later.</p>
+            </div>
+        </div>
+
+        <!-- History Section -->
+        <div class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    History
+                </h2>
+                <button class="btn-outline px-4 py-2 rounded-lg" onclick="if(confirm('Are you sure you want to delete all history?')) { console.log('Delete history'); }">
+                    <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                    Delete All History
+                </button>
+            </div>
+            
+            <div class="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 mb-6">
+                <div class="flex items-center gap-2 text-blue-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>This shows the last 30 jobs in History</span>
+                </div>
+            </div>
+            
+            <div class="gradient-card rounded-2xl shadow-card overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-muted/20 border-b border-border">
+                            <tr>
+                                <th class="text-left p-4 font-semibold">Job ID</th>
+                                <th class="text-left p-4 font-semibold">Name</th>
+                                <th class="text-left p-4 font-semibold">Status</th>
+                                <th class="text-left p-4 font-semibold">Complete</th>
+                                <th class="text-left p-4 font-semibold">Added</th>
+                                <th class="text-left p-4 font-semibold">Launched</th>
+                                <th class="text-left p-4 font-semibold">Completed</th>
+                                <th class="text-left p-4 font-semibold">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-border/50 hover:bg-muted/10 transition-colors">
+                                <td class="p-4 font-mono text-accent">3</td>
+                                <td class="p-4 font-semibold">Return Processing Batch #003</td>
+                                <td class="p-4">
+                                    <span class="bg-green-500/20 text-green-400 border-green-500/50 border px-2.5 py-0.5 rounded-full text-xs font-medium">completed</span>
+                                </td>
+                                <td class="p-4">
+                                    <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </td>
+                                <td class="p-4 text-sm text-muted-foreground">2024-01-13 14:20:00</td>
+                                <td class="p-4 text-sm text-muted-foreground">2024-01-14 00:00:00</td>
+                                <td class="p-4 text-sm text-muted-foreground">2024-01-14 00:01:45</td>
+                                <td class="p-4">
+                                    <div class="flex gap-2">
+                                        <button class="btn-ghost p-1">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-ghost p-1">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-9-4V8a3 3 0 013-3h2a3 3 0 013 3v2M7 21h10a2 2 0 002-2v-2a2 2 0 00-2-2H7a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-ghost p-1">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>

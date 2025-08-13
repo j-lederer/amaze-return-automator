@@ -1,37 +1,37 @@
-/* Design System Variables */
+/* Design System Variables - Blue Gradient Theme */
 :root {
-  /* Core Colors - Dark Theme */
-  --background: 220 20% 10%;
+  /* Core Colors - Dark Blue Theme */
+  --background: 220 26% 4%;
   --foreground: 210 20% 98%;
-  --card: 224 71.4% 4.1%;
+  --card: 220 30% 8%;
   --card-foreground: 210 20% 98%;
-  --popover: 224 71.4% 4.1%;
+  --popover: 220 30% 8%;
   --popover-foreground: 210 20% 98%;
-  --primary: 262.1 83.3% 57.8%;
+  --primary: 195 100% 60%;
   --primary-foreground: 210 20% 98%;
-  --secondary: 215 27.9% 16.9%;
+  --secondary: 220 25% 15%;
   --secondary-foreground: 210 20% 98%;
-  --muted: 215 27.9% 16.9%;
+  --muted: 220 25% 15%;
   --muted-foreground: 217.9 10.6% 64.9%;
-  --accent: 217.9 10.6% 64.9%;
+  --accent: 195 100% 60%;
   --accent-foreground: 210 20% 98%;
   --destructive: 0 72% 51%;
   --destructive-foreground: 210 20% 98%;
-  --border: 215 27.9% 16.9%;
-  --input: 215 27.9% 16.9%;
-  --ring: 262.1 83.3% 57.8%;
+  --border: 220 25% 15%;
+  --input: 220 25% 15%;
+  --ring: 195 100% 60%;
   --radius: 0.5rem;
 
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, hsl(262.1, 83.3%, 57.8%), hsl(250, 100%, 70%));
-  --gradient-hero: linear-gradient(135deg, hsl(262.1, 83.3%, 57.8%), hsl(220, 70%, 60%));
-  --gradient-card: linear-gradient(145deg, hsl(224, 71.4%, 4.1%), hsl(215, 27.9%, 16.9%));
-  --gradient-subtle: linear-gradient(180deg, hsl(224, 71.4%, 4.1%), hsl(220, 20%, 10%));
+  /* Gradients - Blue Theme */
+  --gradient-primary: linear-gradient(135deg, hsl(195, 100%, 60%), hsl(210, 100%, 70%));
+  --gradient-hero: linear-gradient(135deg, hsl(195, 100%, 60%), hsl(220, 70%, 60%));
+  --gradient-card: linear-gradient(145deg, hsl(220, 30%, 8%), hsl(220, 25%, 15%));
+  --gradient-subtle: linear-gradient(180deg, hsl(220, 30%, 8%), hsl(220, 26%, 4%));
 
-  /* Shadows */
-  --shadow-elegant: 0 10px 30px -10px hsl(262.1, 83.3%, 57.8%, 0.3);
-  --shadow-glow: 0 0 40px hsl(262.1, 83.3%, 70%, 0.4);
-  --shadow-card: 0 4px 20px -4px hsl(220, 20%, 5%, 0.3);
+  /* Shadows - Blue Theme */
+  --shadow-elegant: 0 10px 30px -10px hsl(195, 100%, 60%, 0.3);
+  --shadow-glow: 0 0 40px hsl(195, 100%, 70%, 0.4);
+  --shadow-card: 0 4px 20px -4px hsl(220, 26%, 4%, 0.3);
 
   /* Transitions */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

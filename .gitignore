@@ -7,6 +7,64 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Node
+node_modules/
+bun.lockb
+
+# Build
+dist/
+dist-ssr/
+build/
+
+# Python
+flask_app/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+flask_app/.env
+flask_app/venv/
+
+# Common Python venv folders
+venv/
+.venv/
+env/
+.env/
+ENV/
+env.bak/
+venv.bak/
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.swp
+*.swo
+
+# Static/Generated
+public/robots.txt
+public/placeholder.svg
+flask_app/static/css/*.css
+flask_app/static/js/*.js
+
+# Ignore environment files
+.env*
+
+# Ignore coverage
+coverage/
+*.cover
+
+# Ignore test output
+junit.xml
+coverage.xml
+
+# Ignore local config
+local_settings.py
+
 node_modules
 dist
 dist-ssr

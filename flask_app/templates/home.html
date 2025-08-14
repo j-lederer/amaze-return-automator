@@ -15,10 +15,10 @@
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="grid grid-cols-4 gap-8">
-            <!-- Left Column - Search Section (smaller) -->
-            <div class="col-span-1">
-                <div class="gradient-card p-6 rounded-2xl shadow-card">
+        <div class="grid grid-cols-3 gap-8">
+            <!-- Left Column - Search Section (wider) -->
+            <div class="col-span-1 min-w-0">
+                <div class="gradient-card p-8 rounded-2xl shadow-card">
                     <h2 class="text-xl font-bold mb-4 text-center flex items-center justify-center gap-2">
                         <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path>
@@ -44,17 +44,17 @@
                     </form>
                     
                     <!-- Tracking ID Indicator -->
-                    <div id="trackingIndicator" class="mt-3 p-3 rounded-lg border border-accent/20 bg-accent/5 hidden">
-                        <div class="flex items-center justify-center gap-2">
+                    <div id="trackingIndicator" class="mt-4 p-4 rounded-lg border border-accent/20 bg-accent/5 hidden">
+                        <div class="flex flex-col items-center gap-2">
                             <span class="text-base text-muted-foreground">TrackingID:</span>
-                            <span id="currentTrackingId" class="font-mono text-base font-semibold text-accent bg-accent/10 px-3 py-2 rounded"></span>
+                            <span id="currentTrackingId" class="font-mono text-lg font-semibold text-accent bg-accent/10 px-4 py-2 rounded break-all text-center min-w-full"></span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Right Column - Return Information Display -->
-            <div class="col-span-3">
+            <div class="col-span-2">
                 <div class="gradient-card p-8 rounded-2xl shadow-card">
                     <h3 class="text-4xl font-bold mb-8 text-center">Return Information</h3>
                      
